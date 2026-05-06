@@ -25,10 +25,12 @@ class Livre{
 
 }
 
+  class Catalogue {
+    private $livres = [];
 
-
-
-?>
+    public function ajouterLivre(Livre $livre) {
+        $this->livres[] = $livre;
+    }
 
 
 
