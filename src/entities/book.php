@@ -31,8 +31,17 @@ class Livre{
     public function ajouterLivre(Livre $livre) {
         $this->livres[] = $livre;
     }
+    public function afficherLivres() {
+        foreach ($this->livres as $livre) {
+            echo $livre->getTitre() . " | "
+               . $livre->getAuteur() . " | "
+               . $livre->getIsbn() . "<br>";
+        }
+    }
+}
 
 
 
 
 
+  
