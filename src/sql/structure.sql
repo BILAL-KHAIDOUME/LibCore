@@ -19,7 +19,9 @@ CREATE TABLE books (
 CREATE TABLE loans (
     id          INT AUTO_INCREMENT PRIMARY KEY,
     member_id   INT,
+    Foreign Key (member_id) REFERENCES members(id),
     book_id     INT,
+    Foreign Key (book_id) REFERENCES books(id),
     due_date    DATE,
     returned_at DATETIME DEFAULT NULL
 );

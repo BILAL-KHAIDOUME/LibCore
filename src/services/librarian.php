@@ -1,10 +1,11 @@
 <?php
-require_once "../config/database.php";
+require_once "../configs/database.php";
 require_once "member.php";
 
 
 $database = new Database();
 $conn = $database->getConnection();
+
 
 
 class Librarian {

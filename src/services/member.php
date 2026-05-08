@@ -1,5 +1,5 @@
 <?php
-require_once "../config/database.php";
+require_once "../configs/database.php";
 require_once "librarian.php";
 
 
@@ -7,9 +7,7 @@ require_once "librarian.php";
 
 $database = new Database();
 $conn = $database->getConnection();
-// ═════════════════════════════════════════════════════════════════════════════
-//  MEMBER DASHBOARD
-// ═════════════════════════════════════════════════════════════════════════════
+
 
 class Member {
     private $conn;
