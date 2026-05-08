@@ -1,45 +1,25 @@
 <?php
 
-require_once __DIR__ . "/../entities/Connexion.php";
-require_once __DIR__ . "/../entities/Member.php";
+class Member {
 
-class MemberRepository {
+    private $nom;
+    private $email;
+    private $type; 
 
-    private $conn;
+    public function __construct($nom, $email, $type) { 
 
-    public function __construct() {
-
-        $database = new Database();
-        $this->conn = $database->connect();
-
+        $this->nom   = $nom;
+        $this->email = $email;
+        $this->type  = $type; 
     }
 
-    // Ajouter membre
-    public function add($member) {
+    public function getNom()   { return $this->nom;   }
+    public function getEmail() { return $this->email; }
+    public function getType()  { return $this->type;  } // 
 
-        $sql = "INSERT INTO members(nom, email, type)
-                VALUES (?, ?, ?)";
-
-        $stmt = $this->conn->prepare($sql);
-
-        return $stmt->execute([
-
-            $member->getNom(),
-            $member->getEmail(),
-            $member->getType()
-
-        ]);
-
-    }
-
-    public function getAll() {
-
-        $sql = "SELECT * FROM members";
-
-        $stmt = $this->conn->query($sql);
-
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    }
-
+    public function setNom($nom)     { $this->nom   = $nom;   }
+    public function setEmail($email) { $this->email = $email; }
+    public function setType($type)   { $this->type  = $type;  } 
 }
+
+?>
