@@ -43,23 +43,6 @@ class Livre {
 
 
 
-//   class Catalogue {
-//     private $livres = [];
-
-//     public function ajouterLivre(Livre $livre) {
-//         $this->livres[] = $livre;
-//     }
-//   }
-//     public function afficherLivres() {
-//    foreach ($this->livres as $livre) {
-
-//     echo $livre->getTitre() . "\n"
-//        . $livre->getAuteur() . "\n"
-//        . $livre->getIsbn() . "\n";
-// }
-//     }
-// }
-
 
 
 
