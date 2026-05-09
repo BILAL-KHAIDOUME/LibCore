@@ -5,6 +5,14 @@ require_once "Library.php";
 $library = new Library();
 
 while (true) {
+    echo "====================\n";
+    echo "LIBRARY MENU\n";
+    echo "====================\n";
+    echo "1 - Ajouter Livre\n";
+    echo "2 - Ajouter Membre\n";
+    echo "3 - Afficher Livres\n";
+    echo "0 - Quitter\n";
+    echo "====================\n";
 
 
 
