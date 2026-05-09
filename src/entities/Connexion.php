@@ -1,6 +1,7 @@
 <?php
+// Connexion.php
 
-class Database {
+class Connexion {
 
     private $host = "localhost";
     private $dbname = "library";
@@ -12,7 +13,7 @@ class Database {
         try {
 
             $pdo = new PDO(
-                "mysql:host=$this->host;dbname=$this->dbname;charset=utf8",
+                "mysql:host=".$this->host.";dbname=".$this->dbname,
                 $this->username,
                 $this->password
             );
@@ -21,13 +22,12 @@ class Database {
 
             return $pdo;
 
-        } catch(PDOException $e) {
+        } catch (PDOException $e) {
 
-            die("Erreur : " . $e->getMessage());
+            die("Erreur connexion : " . $e->getMessage());
 
         }
 
     }
-}
 
-?>
+}
