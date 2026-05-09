@@ -19,7 +19,7 @@ while (true) {
     $choice = (int) trim($prompt);
 
     if ($choice == 0) {
-        echo "Au revoir \n";
+        echo "merci pour la visite  \n";
         break;
     }
 
@@ -35,6 +35,39 @@ while (true) {
         $library->AjouterLivre($book);
 
         echo "✔ Livre ajouté\n";
-    }}
+    }
 
+
+
+    if ($choice == 2) {
+
+        $member = new Member("Amine", "Sakhri", "2026-05-09", 1);
+        $library->addMember($member);
+
+        echo "✔ Membre ajouté\n";
+    }
+
+    if ($choice == 3) {
+
+        $books = $library->getBooks();
+
+        echo "\n LISTE LIVRES\n";
+
+      foreach ($books as $b) {
+
+    echo "Titre: " . $b->getTitre() . "\n";
+    echo "Auteur: " . $b->getAuteur() . "\n";
+    echo "ISBN: " . $b->getIsbn() . "\n";
+    echo "Disponible: " . $b->getDisponible() . "\n";
+
+    echo "---------------------\n";
+      }}
+
+
+
+
+
+}
+
+    
    

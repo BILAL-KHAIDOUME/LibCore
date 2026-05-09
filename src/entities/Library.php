@@ -27,11 +27,12 @@ class Library {
             $book->getDisponible()
         ]);
     }
+    
 
 
 
     
-        public function AjoutrMember(Member $member) {
+    public function AjoutrMember(Member $member) {
 
         $sqlUser = "INSERT INTO users(nom, prenom, dateC) VALUES (?, ?, ?)";
 
@@ -51,7 +52,7 @@ class Library {
         $stmtMember = $this->conn->prepare($sqlMember);
 
         return $stmtMember->execute([
-            $member->getRoleId(),
-            $user_id
+                 $member->getRoleId(),
+                 $user_id
         ]);
     }}
