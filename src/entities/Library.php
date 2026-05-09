@@ -9,11 +9,12 @@ class Library {
     private $conn;
 
     public function __construct() {
-        $db = new Connexion();
-        $this->conn = $db->connect();
+        $database = new Connexion();
+        $this->conn = $database->connect();
     }
 
-    public function AjouterLivre(Book $book) {
+
+    public function addBook(Book $book) {
 
         $sql = "INSERT INTO books(titre, auteur, isbn, is_available)
                 VALUES (?, ?, ?, ?)";
@@ -27,14 +28,12 @@ class Library {
             $book->getDisponible()
         ]);
     }
-    
 
+ 
+    public function ajouterMember(Member $member) {
 
-
-    
-    public function AjoutrMember(Member $member) {
-
-        $sqlUser = "INSERT INTO users(nom, prenom, dateC) VALUES (?, ?, ?)";
+        $sqlUser = "INSERT INTO users(nom, prenom, dateC)
+                    VALUES (?, ?, ?)";
 
         $stmtUser = $this->conn->prepare($sqlUser);
 
@@ -52,7 +51,33 @@ class Library {
         $stmtMember = $this->conn->prepare($sqlMember);
 
         return $stmtMember->execute([
-                 $member->getRoleId(),
-                 $user_id
+            $member->getRoleId(),
+            $user_id
         ]);
-    }}
+    }
+
+
+    public function ajouterLivre() {
+
+        $sql = "SELECT * FROM books";
+        $stmt = $this->conn->query($sql);
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $books = [];
+
+        foreach ($rows as $row) {
+
+            $book = new Book(
+                $row['titre'],
+                $row['auteur'],
+                $row['isbn'],
+                $row['is_available']
+            );
+
+            $books[] = $book;
+        }
+
+        return $books;
+    }
+}
+

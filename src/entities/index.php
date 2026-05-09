@@ -1,3 +1,4 @@
+
 <?php
 
 require_once "Library.php";
@@ -5,6 +6,7 @@ require_once "Library.php";
 $library = new Library();
 
 while (true) {
+
     echo "====================\n";
     echo "LIBRARY MENU\n";
     echo "====================\n";
@@ -14,42 +16,43 @@ while (true) {
     echo "0 - Quitter\n";
     echo "====================\n";
 
-       echo "Choisir option: ";
-       $prompt =fgets(STDIN);
-    $choice = (int) trim($prompt);
+    echo "Choisir option: ";
+    $choice = (int) trim(fgets(STDIN));
 
     if ($choice == 0) {
-        echo "merci pour la visite  \n";
+        echo "Au revoir \n";
         break;
     }
 
+   
     if ($choice == 1) {
 
-        echo "Titre: "; $titre = trim(fgets(STDIN));
-        echo "Auteur: "; $auteur = trim(fgets(STDIN));
+        echo "Titre: ";$titre = trim(fgets(STDIN));
+
+        echo "Auteur: ";$auteur = trim(fgets(STDIN));
+
         echo "ISBN: ";$isbn = trim(fgets(STDIN));
-        echo "is_available: ";$is_available = trim(fgets(STDIN));
 
+         echo "is_dispo: ";$is_dispo = trim(fgets(STDIN));
 
-        $book = new Book($titre, $auteur, $isbn, 1 ,$is_available );
-        $library->AjouterLivre($book);
+        $book = new Book($titre, $auteur, $isbn, 1 ,$is_dispo );
+        $library->addBook($book);
 
         echo "✔ Livre ajouté\n";
     }
 
-
-
+  
     if ($choice == 2) {
 
         $member = new Member("Amine", "Sakhri", "2026-05-09", 1);
-        $library->addMember($member);
+        $library->ajouterMember($member);
 
         echo "✔ Membre ajouté\n";
     }
 
     if ($choice == 3) {
 
-        $books = $library->getBooks();
+        $books = $library->ajouterLivre();
 
         echo "\n LISTE LIVRES\n";
 
@@ -61,13 +64,7 @@ while (true) {
     echo "Disponible: " . $b->getDisponible() . "\n";
 
     echo "---------------------\n";
-      }}
-
-
-
-
+}
+    }
 
 }
-
-    
-   
