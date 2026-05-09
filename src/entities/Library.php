@@ -9,8 +9,8 @@ class Library {
     private $conn;
 
     public function __construct() {
-        $database = new Connexion();
-        $this->conn = $database->connect();
+        $db = new Connexion();
+        $this->conn = $db->connect();
     }
 
     public function AjouterLivre(Book $book) {

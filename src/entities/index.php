@@ -14,10 +14,12 @@ while (true) {
     echo "0 - Quitter\n";
     echo "====================\n";
 
-
+       echo "Choisir option: ";
+       $prompt =fgets(STDIN);
+    $choice = (int) trim($prompt);
 
     if ($choice == 0) {
-        echo "Au revoir 👋\n";
+        echo "Au revoir \n";
         break;
     }
 
@@ -26,10 +28,10 @@ while (true) {
         echo "Titre: "; $titre = trim(fgets(STDIN));
         echo "Auteur: "; $auteur = trim(fgets(STDIN));
         echo "ISBN: ";$isbn = trim(fgets(STDIN));
-        echo "is_dispo: ";$is_dispo = trim(fgets(STDIN));
+        echo "is_available: ";$is_available = trim(fgets(STDIN));
 
 
-        $book = new Book($titre, $auteur, $isbn, 1 ,$is_dispo );
+        $book = new Book($titre, $auteur, $isbn, 1 ,$is_available );
         $library->AjouterLivre($book);
 
         echo "✔ Livre ajouté\n";
