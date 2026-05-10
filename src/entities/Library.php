@@ -14,7 +14,7 @@ class Library {
     }
 
 
-    public function addBook(Book $book) {
+    public function addBook() {
 
         $sql = "INSERT INTO books(titre, auteur, isbn, is_available)
                 VALUES (?, ?, ?, ?)";
@@ -57,7 +57,7 @@ class Library {
     }
 
 
-    public function ajouterLivre() {
+    public function ListedeLivre() {
 
         $sql = "SELECT * FROM books";
         $stmt = $this->conn->query($sql);

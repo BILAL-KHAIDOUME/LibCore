@@ -36,23 +36,30 @@ while (true) {
          echo "is_dispo: ";$is_dispo = trim(fgets(STDIN));
 
         $book = new Book($titre, $auteur, $isbn, 1 ,$is_dispo );
-        $library->addBook($book);
+        $library->addBook();
 
         echo "✔ Livre ajouté\n";
     }
 
   
     if ($choice == 2) {
+   
+        echo "nom: ";$nom = trim(fgets(STDIN));
+        echo "prenom: ";$prenom = trim(fgets(STDIN));
+        echo "dateC: ";$dateC = trim(fgets(STDIN));
+        echo "role_id: ";$role_id = trim(fgets(STDIN));
 
-        $member = new Member("Amine", "Sakhri", "2026-05-09", 1);
-        $library->ajouterMember($member);
+
+        $member = new Member($nom, $prenom, $dateC, $role_id);
+        $library->ListedeLivre();
+
 
         echo "✔ Membre ajouté\n";
     }
 
     if ($choice == 3) {
 
-        $books = $library->ajouterLivre();
+        $books = $library->ListedeLivre();
 
         echo "\n LISTE LIVRES\n";
 

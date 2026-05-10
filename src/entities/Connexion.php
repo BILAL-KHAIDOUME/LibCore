@@ -1,5 +1,4 @@
 <?php
-// Connexion.php
 
 class Connexion {
 
@@ -30,4 +29,4 @@ class Connexion {
 
     }
 
-}
+}             

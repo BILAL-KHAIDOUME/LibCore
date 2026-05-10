@@ -17,20 +17,12 @@ class Member {
 
     }
 
-    public function getNom() {
-        return $this->nom;
-    }
+    public function getNom() {return $this->nom;}
 
-    public function getPrenom() {
-        return $this->prenom;
-    }
+    public function getPrenom() {return $this->prenom;}
 
-    public function getDateC() {
-        return $this->dateC;
-    }
+    public function getDateC() {return $this->dateC;}
 
-    public function getRoleId() {
-        return $this->role_id;
-    }
+    public function getRoleId() {return $this->role_id;}
 
 }
